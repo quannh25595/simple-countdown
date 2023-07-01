@@ -34,7 +34,7 @@ const Countdown: React.FC<CountdownProps> = ({
           setIsTraining((prevIsTraining) => {
             const nextIsTraining = !prevIsTraining;
             setTime(nextIsTraining ? trainingSeconds : restSeconds);
-            if (nextIsTraining !== prevIsTraining) {
+            if (nextIsTraining) {
               setCycleCount((prevCount) => prevCount + 1);
               playSound();
             }
