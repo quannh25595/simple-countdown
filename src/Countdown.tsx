@@ -22,7 +22,7 @@ const Countdown: React.FC<CountdownProps> = ({
   const [time, setTime] = useState(trainingSeconds);
   const [isTraining, setIsTraining] = useState(true);
   const [cycleCount, setCycleCount] = useState(0);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const timerRef = useRef<ReturnType<typeof setInterval>  | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
@@ -79,14 +79,10 @@ const Countdown: React.FC<CountdownProps> = ({
     backgroundColor: isTraining ? "#ffe0b2" : "#c8e6c9",
   };
 
-  const countStyle = {
-    textAlign: "center",
-  };
-
   return (
     <Grid container style={containerStyle}>
       <Grid item xs={12} sm={8} md={6} lg={4} xl={3}>
-        <div style={countStyle}>
+        <div style={{textAlign: 'center'}}>
           <Typography variant="h5">
             {isTraining ? "Tập luyện" : "Nghỉ ngơi"}
           </Typography>
